@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Defendit Security Tech Pvt. Ltd. - Your Safety, Just a Tap Away. India's first tech-enabled on-demand security platform providing verified guards and emergency services in real time." />
+  <title>Defendit | Your Safety, Just a Tap Away</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #ff4500;
+      --secondary-color: #e63c00;
+      --dark-bg: #0a0a0a;
+      --dark-card: #1a1a1a;
+      --dark-header-footer: #111;
+      --text-light: #ffffff;
+      --text-medium: #ccc;
+      --text-dark: #777;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5vw;
+      background-color: var(--dark-header-footer);
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      height: 55px;
+      /* Adjust height as needed */
+      margin-right: 20px;
+    }
+
+    header nav {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    header nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 5px 0;
+    }
+
+    header nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 90vh;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--dark-bg), #1c1c1c);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      max-width: 800px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      max-width: 600px;
+      color: var(--text-medium);
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+    }
+
+    .cta-button:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 80px 5vw;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    .section p {
+      font-size: 1.05rem;
+      color: var(--text-medium);
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+    }
+
+    .services-grid,
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .service-card,
+    .testimonial-card {
+      background-color: var(--dark-card);
+      padding: 25px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #2a2a2a;
+    }
+
+    .service-card:hover,
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-card h3 {
+      color: var(--text-light);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .service-card p,
+    .testimonial-card p {
+      font-size: 0.95rem;
+      color: var(--text-medium);
+    }
+
+    .testimonial-card .author {
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 1rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      background-color: var(--dark-card);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background-color: #222;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1rem;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+
+    footer {
+      background-color: var(--dark-header-footer);
+      padding: 30px 5vw;
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+      margin-top: 50px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+      }
+
+      header .logo {
+        margin-bottom: 15px;
+        height: 45px;
+      }
+
+      header nav {
+        justify-content: center;
+        width: 100%;
+      }
+
+      header nav a {
+        margin: 0 15px;
+        padding: 5px;
+      }
+
+      .hero {
+        min-height: 75vh;
+        padding: 15px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 60px 4vw;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+      }
+
+      .section p {
+        font-size: 0.95rem;
+      }
+
+      .services-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .service-card,
+      .testimonial-card {
+        padding: 20px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .section h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="Chota_Croped.jpg" alt="Defendit Logo" class="logo" />
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Your Safety, Just a Tap Away</h1>
+    <p>India’s first tech-enabled on-demand security platform providing verified guards and emergency services in real time.</p>
+    <a href="#contact" class="cta-button">Get Started Now</a>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Defendit</h2>
+    <p>Defendit Security Tech Pvt. Ltd. is a modern security solution built for urban India. Backed by AI, GPS, and verified human intelligence, we offer instant personal, commercial, and event protection services through a mobile app. Our mission is to provide reliable, accessible, and efficient security to everyone, anytime, anywhere.</p>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <p>We offer a comprehensive suite of security solutions tailored to your needs. From personal safety to large-scale event security, Defendit has you covered.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Verified Security Guards</h3>
+        <p>Aadhaar-verified, police-cleared, and ex-army/ex-police professionals at your doorstep, ensuring utmost reliability and peace of mind.</p>
+      </div>
+      <div class="service-card">
+        <h3>Instant SOS Alerts</h3>
+        <p>A one-tap emergency alert system that dispatches immediate help to your real-time location, connecting you with nearest available guards and emergency services.</p>
+      </div>
+      <div class="service-card">
+        <h3>Event & Personal Protection</h3>
+        <p>Secure your family, private events, and commercial premises with trusted guards available on-demand, ensuring safety and crowd control.</p>
+      </div>
+      <div class="service-card">
+        <h3>AI & GPS Enabled Deployment</h3>
+        <p>Our smart matching algorithm and advanced geolocation technology ensure faster deployment of security personnel to your exact location, minimizing response times.</p>
+      </div>
+      <div class="service-card">
+        <h3>Flexible Subscription Plans</h3>
+        <p>Choose from flexible hourly, daily, or monthly packages designed for both individual homes and large businesses, offering cost-effective security solutions.</p>
+      </div>
+      <div class="service-card">
+        <h3>Real-time Monitoring</h3>
+        <p>Keep track of your assigned security personnel and their activities through our intuitive mobile application, providing transparency and control.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <p>Hear from our satisfied customers who have experienced the Defendit difference in safety and security.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Defendit provided excellent security for our corporate event. The guards were professional and highly efficient. Highly recommended!"</p>
+        <div class="author">- Priya Sharma, Event Organizer</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"Feeling much safer with Defendit's personal protection service. The SOS feature is a life-saver, and the guards are incredibly reliable."</p>
+        <div class="author">- Rajesh Kumar, Private Citizen</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"The on-demand nature of Defendit is revolutionary. We've used them for our retail store, and the response time is always impressive."</p>
+        <div class="author">- Sneha Patel, Business Owner</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"As an ex-military personnel, I appreciate the professionalism and discipline of Defendit's guards. They truly embody trustworthiness."</p>
+        <div class="author">- Major Anand Singh (Retd.), Security Consultant</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or need a custom security solution? Reach out to us, and our team will be happy to assist you.</p>
+    <div class="contact-form">
+      <form action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email Address" required />
+
+        <label for="phone">Phone Number (Optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Defendit Technologies Pvt. Ltd. All rights reserved.
+  </footer>
+</body>
+
+</html>
